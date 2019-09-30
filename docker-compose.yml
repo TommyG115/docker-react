@@ -1,0 +1,25 @@
+version: '3'
+services:
+  web:
+    build: 
+      context: .
+      dockerfile: Dockerfile.dev
+    ports: 
+      - "3000:3000"
+    volumes:
+      - /app/node_modules
+      - .:/app
+
+  # Alternate way to run tests which will run tests
+  # when docker-compose up is executed
+  # Could instead get container ID and run tests by using
+  # docker exec [container ID] npm run test, while container is running 
+  
+  #tests:
+    #build:
+     # context: .
+      #dockerfile: Dockerfile.dev
+    #volumes: 
+     # - /app/node_modules
+      #- .:/app
+    #command: ["npm", "run", "test"]
