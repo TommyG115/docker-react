@@ -10,6 +10,8 @@ RUN npm run build
 
 
 FROM nginx
+# Map to port 80
+EXPOSE 80
 # Copying just the stuff we care about by dumping all uneccessary files
 # from the previous stage above
 COPY --from=builder /app/build /usr/share/nginx/html
